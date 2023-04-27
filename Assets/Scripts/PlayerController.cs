@@ -30,4 +30,11 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate() {
         rigidbody.AddForce(direction.normalized * speed, ForceMode.Impulse);
     }
+
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("RedSphere")) {
+            Destroy(collision.gameObject);
+        }
+    }
 }
